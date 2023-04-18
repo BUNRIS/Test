@@ -186,7 +186,7 @@ spawn(function()
                 wait(1.4) --TimedropItem
                     game:GetService("Workspace").Interactions.Nodes.Harvest.Food.ActiveNodes.Lobby:Destroy()
                     wait(.1)
-                elseif game:GetService("Workspace").Interactions.Nodes.Harvest.Food.ActiveNodes.Lobby.DataCost == 79 then
+                elseif game:GetService("Workspace").Interactions.Nodes.Harvest.Food.ActiveNodes.Lobby.DataCost == 107 then
                     for i,v in pairs(game:GetService("Workspace").Interactions.Nodes.Harvest.Food.ActiveNodes.Lobby["FruitTree_LobbyTree"]:GetDescendants()) do
                         if v.Name == "Interact" then
                             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame*CFrame.new(0,0,4)
@@ -210,11 +210,11 @@ spawn(function()
     while _G.minerals1 do wait()
         pcall(function()
             if _G.minerals1 then
-                if game:GetService("Workspace").Interactions.Nodes.Harvest.Resources.ActiveNodes.Lobby.DataCost == 39 then
+                if game:GetService("Workspace").Interactions.Nodes.Harvest.Resources.ActiveNodes.Lobby.DataCost ~= 107 then
                     wait(1.4) --TimedropItem
                         game:GetService("Workspace").Interactions.Nodes.Harvest.Resources.ActiveNodes.Lobby:Destroy()
                         wait(.1)
-                elseif game:GetService("Workspace").Interactions.Nodes.Harvest.Resources.ActiveNodes.Lobby.DataCost == 79 then
+                elseif game:GetService("Workspace").Interactions.Nodes.Harvest.Resources.ActiveNodes.Lobby.DataCost == 107 then
                     for i,v in pairs(game:GetService("Workspace").Interactions.Nodes.Harvest.Resources.ActiveNodes.Lobby["RawResource_Lobby"]:GetDescendants()) do
                         if v.Name == "Interact" then
                             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame*CFrame.new(0,0,4)
