@@ -80,7 +80,7 @@ while task.wait() do
                             if v.Name == "Interact" then
                             wait(.1)
                                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame*CFrame.new(0,0,4)
-                            wait(1.8)
+                            wait(1.6)
                             game:GetService"VirtualUser":Button1Down(Vector2.new(797, 419))
                             if game:GetService("Players").LocalPlayer.PlayerGui.NodeGui.Enabled == true then
                                 workspace.Interactions.Nodes.Harvest.EventResources.ActiveNodes.Easter2023.StateRemote:InvokeServer(true)
@@ -166,43 +166,35 @@ local harmlibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/B
 harmlibrary.getinstance()
 
 local main = harmlibrary.Create({
-    Title = "Harmty Hub",
+    Title = "⛔ HARMTY  HUB ⛔",
     Color = Color3.fromRGB(245, 149, 0),
     Key = Enum.KeyCode.RightControl,
 })
 
 local tab = main.CreateTab({Title = "General"})
 
-local tab2 = main.CreateTab({Title = "Teleport"})
-
 local page = tab.CreatePage({Type = "l"})
 local page2 = tab.CreatePage({Type = "r"})
-
-page.Toggle({Title = "Auto Tree🌲",Default = false,callback = function(v)
- _G.Tree = (v)
-
+page.Label({Title = "                                              [ Auto ITEM ]"})
+page.Toggle({Title = "🌲 Auto Tree 🌲",Default = false,callback = function(v)
+    _G.Tree1 = (v)
 spawn(function()
-    while task.wait() do
+    while _G.Tree1 do wait()
         pcall(function()
-            if _G.Tree then
-                if game:GetService("Workspace").Interactions.Nodes.Harvest.Food.ActiveNodes:FindFirstChild("Lobby") then
-                    for i,v in pairs(game:GetService("Workspace").Interactions.Nodes.Harvest.Food.ActiveNodes:GetChildren()) do
-                        if v.DataCost ~= 79 then
-                            wait(.1)
-                            game:GetService("Workspace").Interactions.Nodes.Harvest.Food.ActiveNodes.Lobby:Destroy()
+            if _G.Tree1 then
+                if game:GetService("Workspace").Interactions.Nodes.Harvest.Food.ActiveNodes.Lobby.DataCost == 39 then
+                wait(1.4) --TimedropItem
+                    game:GetService("Workspace").Interactions.Nodes.Harvest.Food.ActiveNodes.Lobby:Destroy()
+                    wait(.1)
+                elseif game:GetService("Workspace").Interactions.Nodes.Harvest.Food.ActiveNodes.Lobby.DataCost == 79 then
+                    for i,v in pairs(game:GetService("Workspace").Interactions.Nodes.Harvest.Food.ActiveNodes.Lobby["FruitTree_LobbyTree"]:GetDescendants()) do
+                        if v.Name == "Interact" then
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame*CFrame.new(0,0,4)
                             wait(1.6)
-                        elseif v.DataCost == 79 then
-                            for i,v in pairs(game:GetService("Workspace").Interactions.Nodes.Harvest.Food.ActiveNodes.Lobby["FruitTree_LobbyTree"]:GetChildren()) do
-                                if v.Name == "Interact" then
-                                    wait(.1)
-                                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame*CFrame.new(0,11,0)
-                                        wait(1.7)
-                                        game:GetService"VirtualUser":Button1Down(Vector2.new(1659, 341))
+                                game:GetService"VirtualUser":Button1Down(Vector2.new(439, 37))
                                     if game:GetService("Players").LocalPlayer.PlayerGui.NodeGui.Enabled == true then
-                                        workspace.Interactions.Nodes.Harvest.Food.ActiveNodes.Lobby.StateRemote:InvokeServer(true)
-                                        workspace.Interactions.Nodes.Harvest.Food.ActiveNodes.Lobby.BoostRemote:InvokeServer(true,"Food0")
-                                    end
-                                end
+                                    workspace.Interactions.Nodes.Harvest.Food.ActiveNodes.Lobby.StateRemote:InvokeServer(true)
+                                workspace.Interactions.Nodes.Harvest.Food.ActiveNodes.Lobby.BoostRemote:InvokeServer(true,"Food0")
                             end
                         end
                     end
@@ -212,16 +204,68 @@ spawn(function()
     end
 end)
 end,})
-page.Toggle({Title = "Auto minerals",Default = false,callback = function(v)  
-    print(12)
+page.Toggle({Title = "⛏  Auto Minerals  ⛏",Default = false,callback = function(v)
+    _G.minerals1 = (v)
+spawn(function()
+    while _G.minerals1 do wait()
+        pcall(function()
+            if _G.minerals1 then
+                if game:GetService("Workspace").Interactions.Nodes.Harvest.Resources.ActiveNodes.Lobby.DataCost == 39 then
+                    wait(1.4) --TimedropItem
+                        game:GetService("Workspace").Interactions.Nodes.Harvest.Resources.ActiveNodes.Lobby:Destroy()
+                        wait(.1)
+                elseif game:GetService("Workspace").Interactions.Nodes.Harvest.Resources.ActiveNodes.Lobby.DataCost == 79 then
+                    for i,v in pairs(game:GetService("Workspace").Interactions.Nodes.Harvest.Resources.ActiveNodes.Lobby["RawResource_Lobby"]:GetDescendants()) do
+                        if v.Name == "Interact" then
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame*CFrame.new(0,0,4)
+                            wait(1.6)
+                            game:GetService"VirtualUser":Button1Down(Vector2.new(1520, 610))
+                      --      if game:GetService("Players").LocalPlayer.PlayerGui.NodeGui.Enabled == true then
+                                workspace.Interactions.Nodes.Harvest.Resources.ActiveNodes.Lobby.StateRemote:InvokeServer(true)
+                                workspace.Interactions.Nodes.Harvest.Resources.ActiveNodes.Lobby.BoostRemote:InvokeServer(true,"Resources0")
+                        --    end
+                        end
+                    end
+                end
+            end
+        end)
+    end
+end)
 end,})
 
 page.Line()
+page.Blank(5)
+page.Label({Title = "                                              [ Find ITEM ]"})
+page.Button({Title = "🥚 Find Egg 🥚",callback = function(v)
+    if game:GetService("Workspace").Interactions.Nodes.Harvest.Eggs.ActiveNodes.Lobby.DataCost ~= 142 then
+        game:GetService("Workspace").Interactions.Nodes.Harvest.Eggs.ActiveNodes.Lobby:Destroy()
+    elseif game:GetService("Workspace").Interactions.Nodes.Harvest.Eggs.ActiveNodes.Lobby.DataCost == 142 then
+        for i,v in pairs(game:GetService("Workspace").Interactions.Nodes.Harvest.Eggs.ActiveNodes.Lobby.EggModel.Egg:GetDescendants()) do
+            if v.Name == "Interact" then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame*CFrame.new(0,0,4)
+            end
+        end
+    end    
+end,})    
 
-page.Blank(20)
+page.Button({Title = "💎 Find Crystals 💎",callback = function(v)
+    if game:GetService("Workspace").Interactions.Nodes.Harvest.Magic.ActiveNodes.Lobby.DataCost == 43 then
+        game:GetService("Workspace").Interactions.Nodes.Harvest.Magic.ActiveNodes.Lobby:Destroy()
+    elseif game:GetService("Workspace").Interactions.Nodes.Harvest.Magic.ActiveNodes.Lobby.DataCost == 107 then
+        for i,v in pairs(game:GetService("Workspace").Interactions.Nodes.Harvest.Magic.ActiveNodes.Lobby["Meshes/MagicCrystal_Crystal"]:GetDescendants()) do
+            if v.Name == "Interact" then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame*CFrame.new(0,0,4)
+            end
+        end
+    end
+end,}) 
+
 page2.Label({Title = "                                                [ Location🔰 ]"})
 page2.Button({Title = "Shop💰",callback = function(v)
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = (CFrame.new(-9.479345321655273, 132.1798095703125, 189.611572265625))
+end,})
+page2.Button({Title = "Bank🧾",callback = function(v)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-63.630435943603516, 129.0962677001953, -155.1771697998047)
 end,})
 page2.Button({Title = "Door🚪",callback = function(v)
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = (CFrame.new(-495.9071960449219, 49.64232635498047, -611.6625366210938))
@@ -232,10 +276,11 @@ end,})
 page2.Button({Title = "Sell Food💸",callback = function(v)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = (CFrame.new(-652.2567749023438, 69.6579360961914, -296.1737060546875))
 end,})
-page2.Label({Title = "                                        [ Teleport Word🌍 ]"})
-page2.Button({Title = "Word Event",callback = function(v)
-    game:GetService("ReplicatedStorage").Remotes.WorldTeleportRemote:InvokeServer(5777228223,{["SetArrivalPosition"] = "LobbyPortal"})
+page2.Button({Title = "⚔ Dungeon Boss ⚔",callback = function(v)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1907.9822998046875, 481.2318115234375, 1083.15625)
 end,})
+
+page2.Label({Title = "                                         [ Teleport Word🌍 ]"})
 page2.Button({Title = "Word1",callback = function(v)
     game:GetService("ReplicatedStorage").Remotes.WorldTeleportRemote:InvokeServer(3475397644,{})
 end,})
@@ -273,3 +318,96 @@ end,})
 end)
 end
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+if _G.Word8 then
+pcall(function()
+local harmlibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/BUNRIS/HUB/main/README.md"))()
+harmlibrary.getinstance()
+local main = harmlibrary.Create({
+    Title = "⛔ HARMTY  HUB ⛔",
+    Color = Color3.fromRGB(245, 149, 0),
+    Key = Enum.KeyCode.RightControl,
+})
+
+local tab = main.CreateTab({Title = "General"})
+
+local page = tab.CreatePage({Type = "l"})
+local page2 = tab.CreatePage({Type = "r"})
+page.Label({Title = "                                              [ Auto ITEM ]"})
+page.Toggle({Title = "Auto Tree",Default = false,callback = function(v)  
+    
+    _G.Tree = (v)
+spawn(function()
+while task.wait() do
+    pcall(function()
+        if _G.Tree then
+            if game:GetService("Workspace").Interactions.Nodes.Harvest.Food.ActiveNodes:FindFirstChild("Fantasy") then
+                for i,v in pairs(game:GetService("Workspace").Interactions.Nodes.Harvest.Food.ActiveNodes:GetChildren()) do
+                    if v.DataCost ~= 79 then
+                        game:GetService("Workspace").Interactions.Nodes.Harvest.Food.ActiveNodes.Fantasy:Destroy()
+                            wait(1.8)
+                    elseif v.DataCost == 79 then
+                        for i,v in pairs(game:GetService("Workspace").Interactions.Nodes.Harvest.Food.ActiveNodes.Fantasy["FruitTree_FantasyTree"]:GetChildren()) do   
+                            if v.Name == "Interact" then
+                            wait(.1)
+                                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame*CFrame.new(0,0,5)
+                            wait(1.8)
+                            game:GetService"VirtualUser":Button1Down(Vector2.new(1617, 607))
+                            if game:GetService("Players").LocalPlayer.PlayerGui.NodeGui.Enabled == true then
+                                workspace.Interactions.Nodes.Harvest.Food.ActiveNodes.Fantasy.StateRemote:InvokeServer(true)
+                                    workspace.Interactions.Nodes.Harvest.Food.ActiveNodes.Fantasy.BoostRemote:InvokeServer(true,"Food0")
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end)
+    end
+end)
+        
+
+end,})
+
+
+page.Line()
+page.Blank(5)
+
+page2.Label({Title = "                                         [ Teleport Word🌍 ]"})
+page2.Button({Title = "Word1",callback = function(v)
+    game:GetService("ReplicatedStorage").Remotes.WorldTeleportRemote:InvokeServer(3475397644,{})
+end,})
+page2.Button({Title = "auction room",callback = function(v)
+    
+end,})
+
+page2.Button({Title = "Word2",callback = function(v)
+    game:GetService("ReplicatedStorage").Remotes.WorldTeleportRemote:InvokeServer(4601778915,{})
+end,})
+page2.Button({Title = "Word3",callback = function(v)
+    game:GetService("ReplicatedStorage").Remotes.WorldTeleportRemote:InvokeServer(3475422608,{})
+end,})
+page2.Button({Title = "Word4",callback = function(v)
+    game:GetService("ReplicatedStorage").Remotes.WorldTeleportRemote:InvokeServer(3487210751,{})
+end,})
+page2.Button({Title = "Word5",callback = function(v)
+    game:GetService("ReplicatedStorage").Remotes.WorldTeleportRemote:InvokeServer(3623549100,{})
+end,})
+page2.Button({Title = "Word6",callback = function(v)
+    game:GetService("ReplicatedStorage").Remotes.WorldTeleportRemote:InvokeServer(3737848045,{})
+end,})
+page2.Button({Title = "Word7",callback = function(v)
+    game:GetService("ReplicatedStorage").Remotes.WorldTeleportRemote:InvokeServer(3752680052,{})
+end,})
+page2.Button({Title = "Word8",callback = function(v)
+    game:GetService("ReplicatedStorage").Remotes.WorldTeleportRemote:InvokeServer(4174118306,{})
+end,})
+page2.Button({Title = "Word9",callback = function(v)
+    game:GetService("ReplicatedStorage").Remotes.WorldTeleportRemote:InvokeServer(4728805070,{})
+end,})
+page2.Button({Title = "Word10",callback = function(v)
+    game:GetService("ReplicatedStorage").Remotes.WorldTeleportRemote:InvokeServer(4869039553,{})
+end,})
+end)
+end
