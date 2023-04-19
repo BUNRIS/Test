@@ -1,3 +1,4 @@
+-- Harmty Limited Script :)
 wait(7)
 _G.EvenEgg = false
 _G.Word1 = false
@@ -70,11 +71,6 @@ spawn(function()
 while _G.Chocolate do wait()
     pcall(function()
         if _G.Chocolate then
-            if game:GetService("Workspace").Interactions.Nodes.Harvest.EventResources.ActiveNodes.Easter2023.DataCost ~= 103 then
-                wait(1.4)
-                game:GetService("Workspace").Interactions.Nodes.Harvest.EventResources.ActiveNodes.Easter2023:Destroy()
-                wait(.1)
-            elseif game:GetService("Workspace").Interactions.Nodes.Harvest.EventResources.ActiveNodes.Easter2023.DataCost == 103 then
                 for i,v in pairs(game:GetService("Workspace").Interactions.Nodes.Harvest.EventResources.ActiveNodes.Easter2023.BunnyNode:GetChildren()) do
                     if v.Name == "Interact" then
                         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame*CFrame.new(0,0,4)
@@ -83,8 +79,7 @@ while _G.Chocolate do wait()
                         workspace.Interactions.Nodes.Harvest.EventResources.ActiveNodes.Easter2023.StateRemote:InvokeServer(true)
                         workspace.Interactions.Nodes.Harvest.EventResources.ActiveNodes.Easter2023.BoostRemote:InvokeServer(true,"EventResources1")
                     end
-                end
-            end
+             end
         end
     end)
 end
@@ -102,7 +97,17 @@ page.Button({Title = "Find Easter Eggs",callback = function(v)
     end
 end
 end,})
-
+page.Button({Title = "Re join",callback = function(v)
+ function A()
+	game.StarterGui:SetCore("SendNotification", {
+        Duration = 10
+    })
+	wait(1)
+	game:GetService("TeleportService"):Teleport(game.PlaceId)
+	wait(50)
+end
+A()  
+ end,})   
 page2.Label({Title = "                                         [ Teleport Easter🥚 ]"})
 page2.Button({Title = "Spawn EasterEgg",callback = function(v) 
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(838.0194702148438, 268.8912048339844, 310.9625549316406)
